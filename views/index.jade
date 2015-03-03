@@ -1,0 +1,31 @@
+extends layout
+
+block content
+    .container.head
+        h1 Make a Random Choice
+
+    .container(ng-controller="randomizer")
+        h4 Add Choices
+        form(ng-submit="addChoice()", class="form-inline")
+            .form-group
+                    input(type="text", placeholder="choice...", ng-model="choice", class="form-control")
+            | &nbsp;
+            .form-group
+                input(type="submit", class="btn btn-info", value="Add Choice")
+            | &nbsp;
+            .form-group
+                a.btn.btn-danger.btn-xs(ng-click="reset()") Reset
+
+        .container.listed-choices
+            h3 Options
+            ul.list-unstyled
+                li(ng-repeat="choice in choices", class="active-{{choice.active}} list-item") {{choice.choice}}
+                    | &nbsp;
+                    input(type="checkbox", ng-model="choice.active")
+
+        .container
+            button.btn.btn-info(ng-click="makeChoice()") Make a Choice
+            h3 And the winner is...
+            .container.row.pull-left(ng-show="finalChoice")
+                h1.chosen.col-md-4.col-lg-4.col-sm-4 {{finalChoice}} !
+

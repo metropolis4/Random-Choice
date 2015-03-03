@@ -1,0 +1,19 @@
+.active-false {
+    text-decoration: line-through;
+    color: darkgrey;
+}
+.list-item {
+    font-size: 22px;
+}
+.listed-choices h2{
+    text-decoration: underline;
+}
+.head {
+    border-bottom: 1px solid darkgrey;
+}
+.chosen {
+    background: #51c1db;
+    color: white;
+    border-radius: 5px;
+    padding: 7px;
+}
